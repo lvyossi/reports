@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>דובדבן ביצוע · דוח ביצועים — מאי 2026</title>
+<meta name="description" content="דוח ביצועים דיגיטלי חודשי לחברת דובדבן ביצוע — מאי 2026. פרסום ממומן, אורגני, תובנות והמלצות." />
+<link rel="icon" href="../../assets/duvdevan-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --blue:#2e7ce0; --blue-2:#4aa6ec; --navy:#0d2a4d; --navy-deep:#081a31;
+  --cherry:#e63950; --cherry-2:#ff5d72;
+  --bg:#070c16; --bg-2:#0b1322; --card:rgba(255,255,255,.045);
+  --card-bd:rgba(255,255,255,.09); --txt:#eaf1fb; --muted:#90a2bd;
+  --good:#36d399; --bad:#ff6b81;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Heebo',system-ui,sans-serif;background:var(--bg);color:var(--txt);
+  line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+/* ambient background */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(900px 600px at 85% -5%, rgba(46,124,224,.22), transparent 60%),
+    radial-gradient(700px 500px at 0% 10%, rgba(230,57,80,.14), transparent 55%),
+    radial-gradient(800px 700px at 50% 110%, rgba(46,124,224,.12), transparent 60%),
+    linear-gradient(180deg,var(--bg),var(--bg-2));
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%);
+          mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%);
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:rgba(7,12,22,.66);border-bottom:1px solid var(--card-bd)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+nav img{height:30px;filter:brightness(0) invert(1);opacity:.96}
+nav .badge{font-size:13px;color:var(--muted);font-weight:500;
+  border:1px solid var(--card-bd);padding:6px 14px;border-radius:100px}
+
+/* HERO */
+header{padding:78px 0 36px;text-align:center;position:relative}
+.logo-hero{height:74px;margin-bottom:30px;filter:brightness(0) invert(1);
+  animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.kicker{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:14px;
+  letter-spacing:.4px;color:var(--blue-2);border:1px solid rgba(46,124,224,.35);
+  background:rgba(46,124,224,.08);padding:8px 18px;border-radius:100px;margin-bottom:22px;
+  animation:rise .9s .05s cubic-bezier(.2,.8,.2,1) both}
+.kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 0 0 rgba(54,211,153,.6);animation:pulse 2s infinite}
+h1{font-size:clamp(38px,6.4vw,76px);font-weight:900;line-height:1.04;letter-spacing:-1.5px;
+  background:linear-gradient(120deg,#fff 25%,var(--blue-2) 75%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:rise .9s .1s cubic-bezier(.2,.8,.2,1) both}
+h1 .cherry{background:linear-gradient(120deg,var(--cherry-2),var(--cherry));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{margin:20px auto 0;max-width:640px;color:var(--muted);font-size:clamp(16px,2vw,19px);
+  animation:rise .9s .16s cubic-bezier(.2,.8,.2,1) both}
+.daterange{margin-top:14px;font-weight:700;color:var(--txt);font-size:15px;letter-spacing:.5px;
+  animation:rise .9s .2s cubic-bezier(.2,.8,.2,1) both}
+
+/* SECTION */
+section{padding:54px 0;position:relative}
+.s-head{display:flex;align-items:center;gap:16px;margin-bottom:34px}
+.s-num{font-weight:900;font-size:15px;color:var(--blue-2);border:1px solid rgba(46,124,224,.35);
+  background:rgba(46,124,224,.08);min-width:42px;height:42px;display:grid;place-items:center;border-radius:13px}
+.s-head h2{font-size:clamp(26px,3.6vw,38px);font-weight:800;letter-spacing:-.6px}
+.s-head .line{flex:1;height:1px;background:linear-gradient(90deg,var(--card-bd),transparent)}
+
+/* CARDS / GLASS */
+.glass{background:var(--card);border:1px solid var(--card-bd);border-radius:22px;
+  backdrop-filter:blur(6px);box-shadow:0 24px 60px -30px rgba(0,0,0,.7)}
+
+/* KPI */
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.kpi{padding:26px 22px;border-radius:20px;position:relative;overflow:hidden}
+.kpi::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:linear-gradient(160deg,rgba(255,255,255,.25),transparent 45%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.kpi .ico{font-size:22px;margin-bottom:12px;opacity:.9}
+.kpi .num{font-size:clamp(28px,3.4vw,40px);font-weight:900;letter-spacing:-1px;line-height:1}
+.kpi .lbl{color:var(--muted);font-size:13.5px;font-weight:500;margin-top:9px}
+.kpi .pill{position:absolute;top:18px;left:18px;font-size:11.5px;font-weight:700;
+  padding:3px 9px;border-radius:100px}
+.pill.up{color:var(--good);background:rgba(54,211,153,.12)}
+.pill.down{color:var(--bad);background:rgba(255,107,129,.12)}
+.kpi.accent{background:linear-gradient(160deg,rgba(46,124,224,.22),rgba(46,124,224,.04))}
+.kpi.accent-c{background:linear-gradient(160deg,rgba(230,57,80,.2),rgba(230,57,80,.03))}
+
+/* generic grids */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+/* ADS table cards */
+.camp{padding:22px 24px;border-radius:18px;display:grid;
+  grid-template-columns:1.7fr repeat(4,1fr);align-items:center;gap:14px;transition:.25s}
+.camp:hover{transform:translateY(-3px);border-color:rgba(46,124,224,.4)}
+.camp .name{font-weight:700;font-size:15.5px;display:flex;align-items:center;gap:10px}
+.camp .st{width:9px;height:9px;border-radius:50%;flex:none}
+.st.active{background:var(--good);box-shadow:0 0 10px var(--good)}
+.st.done{background:#65789a}
+.camp .cell .v{font-weight:800;font-size:18px}
+.camp .cell .k{color:var(--muted);font-size:12px}
+.camp .cell .best{color:var(--good)}
+.camp-head{display:grid;grid-template-columns:1.7fr repeat(4,1fr);gap:14px;
+  padding:0 24px 10px;color:var(--muted);font-size:12.5px;font-weight:600}
+
+.callouts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+.callout{padding:24px;border-radius:18px}
+.callout .big{font-size:34px;font-weight:900;letter-spacing:-1px}
+.callout.win .big{color:var(--good)} .callout.warn .big{color:#ffd166}
+.callout h4{font-size:15px;margin:6px 0 8px} .callout p{color:var(--muted);font-size:14px}
+
+/* charts layout */
+.chart-card{padding:28px}
+.chart-card h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.chart-card .cap{color:var(--muted);font-size:13px;margin-bottom:18px}
+.legend{display:flex;flex-direction:column;gap:14px;justify-content:center}
+.legend .row{display:flex;align-items:center;gap:12px}
+.legend .sw{width:13px;height:13px;border-radius:4px;flex:none}
+.legend .row .t{flex:1;font-weight:600}
+.legend .row .p{font-weight:800;font-size:18px}
+
+/* stat list */
+.statlist{padding:10px 6px}
+.statrow{display:flex;align-items:center;justify-content:space-between;
+  padding:15px 18px;border-bottom:1px solid rgba(255,255,255,.05)}
+.statrow:last-child{border-bottom:0}
+.statrow .l{color:var(--muted);font-weight:500}
+.statrow .r{display:flex;align-items:center;gap:10px}
+.statrow .r .v{font-weight:800;font-size:19px}
+.delta{font-size:12.5px;font-weight:700;padding:2px 8px;border-radius:100px}
+.delta.up{color:var(--good);background:rgba(54,211,153,.12)}
+.delta.down{color:var(--bad);background:rgba(255,107,129,.12)}
+
+/* cities bars */
+.bar{margin:14px 0}
+.bar .top{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
+.bar .top b{font-weight:800}
+.track{height:9px;background:rgba(255,255,255,.07);border-radius:100px;overflow:hidden}
+.fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--blue),var(--blue-2));
+  width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+
+/* winning content */
+.vid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.vid{padding:24px;border-radius:18px;position:relative;overflow:hidden;transition:.25s}
+.vid:hover{transform:translateY(-4px)}
+.vid .rank{position:absolute;top:-10px;left:14px;font-size:64px;font-weight:900;
+  color:rgba(255,255,255,.05);line-height:1}
+.vid .views{font-size:34px;font-weight:900;letter-spacing:-1px;
+  background:linear-gradient(120deg,#fff,var(--blue-2));-webkit-background-clip:text;
+  background-clip:text;-webkit-text-fill-color:transparent}
+.vid .title{font-weight:700;font-size:16px;margin:6px 0 14px}
+.plat{display:flex;gap:7px;flex-wrap:wrap}
+.tag{font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:100px;
+  border:1px solid var(--card-bd)}
+.tag.ig{color:#ff7eb3;background:rgba(255,126,179,.08)}
+.tag.fb{color:#5b9bff;background:rgba(91,155,255,.08)}
+.tag.yt{color:#ff6b6b;background:rgba(255,107,107,.08)}
+
+/* insights */
+.ins-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.ins{padding:26px;border-radius:18px;display:flex;gap:18px;align-items:flex-start}
+.ins .em{font-size:30px;flex:none;width:56px;height:56px;display:grid;place-items:center;
+  border-radius:15px;background:rgba(46,124,224,.1);border:1px solid rgba(46,124,224,.25)}
+.ins h4{font-size:17px;margin-bottom:5px}
+.ins p{color:var(--muted);font-size:14.5px}
+
+/* recommendations */
+.rec{display:flex;gap:18px;padding:22px 24px;border-radius:16px;margin-bottom:14px;
+  align-items:flex-start;transition:.2s}
+.rec:hover{transform:translateX(-5px);border-color:rgba(46,124,224,.4)}
+.rec .n{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+  font-weight:900;color:#fff;background:linear-gradient(140deg,var(--blue),var(--navy));}
+.rec .c h4{font-size:16.5px;margin-bottom:3px}
+.rec .c p{color:var(--muted);font-size:14px}
+
+/* footer */
+footer{padding:60px 0 50px;text-align:center;border-top:1px solid var(--card-bd);margin-top:40px}
+footer img{height:42px;filter:brightness(0) invert(1);opacity:.9;margin-bottom:18px}
+footer .tag2{color:var(--muted);font-size:14px}
+footer .meta{color:#54657f;font-size:12.5px;margin-top:14px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(54,211,153,.6)}70%{box-shadow:0 0 0 9px rgba(54,211,153,0)}100%{box-shadow:0 0 0 0 rgba(54,211,153,0)}}
+
+@media(max-width:900px){
+  .kpi-grid{grid-template-columns:1fr 1fr}
+  .grid-2,.grid-3,.callouts,.vid-grid,.ins-grid{grid-template-columns:1fr}
+  .camp,.camp-head{grid-template-columns:1fr 1fr;gap:10px}
+  .camp-head{display:none}
+  .camp .name{grid-column:1/-1}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <img src="../../assets/duvdevan-logo.png" alt="דובדבן ביצוע" />
+    <span class="badge">דוח ביצועים · מאי 2026</span>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <img class="logo-hero" src="../../assets/duvdevan-logo.png" alt="דובדבן ביצוע" />
+    <div class="kicker"><span class="dot"></span> דוח חודשי · דיגיטל ומדיה</div>
+    <h1>סיכום ביצועים<br><span class="cherry">מאי 2026</span></h1>
+    <p class="sub">חודש של חשיפה גבוהה ותוכן אנושי שעובד — סקירת הפרסום הממומן, הפעילות האורגנית והמסקנות לפעולה.</p>
+    <div class="daterange">📅 3 במאי – 1 ביוני 2026</div>
+  </div>
+</header>
+
+<!-- KPI -->
+<section style="padding-top:24px">
+  <div class="wrap">
+    <div class="kpi-grid">
+      <div class="kpi glass accent">
+        <div class="ico">👁️</div>
+        <div class="num" data-count="61436">0</div>
+        <div class="lbl">צפיות באינסטגרם (30 יום)</div>
+      </div>
+      <div class="kpi glass">
+        <div class="ico">📣</div>
+        <div class="num" data-count="59162">0</div>
+        <div class="lbl">חשיפה בפרסום הממומן</div>
+      </div>
+      <div class="kpi glass accent-c">
+        <div class="ico">💰</div>
+        <div class="num" data-prefix="₪" data-count="651">0</div>
+        <div class="lbl">סך הוצאת מדיה</div>
+      </div>
+      <div class="kpi glass">
+        <span class="pill up">▲ 5.6%</span>
+        <div class="ico">🤝</div>
+        <div class="num" data-prefix="+" data-count="37">0</div>
+        <div class="lbl">גידול נטו בעוקבים</div>
+      </div>
+      <div class="kpi glass">
+        <div class="ico">⚡</div>
+        <div class="num" data-count="14533">0</div>
+        <div class="lbl">מעורבויות בפוסטים</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 1. PAID -->
+<section>
+  <div class="wrap">
+    <div class="s-head reveal"><span class="s-num">01</span><h2>פרסום ממומן · Meta Ads</h2><span class="line"></span></div>
+
+    <div class="camp-head reveal">
+      <span>קמפיין</span><span>תוצאות</span><span>עלות לתוצאה</span><span>הוצאה</span><span>חשיפה</span>
+    </div>
+
+    <div class="reveal glass camp" style="margin-bottom:12px">
+      <div class="name"><span class="st done"></span>סרטון "למה לבחור בנו"</div>
+      <div class="cell"><div class="v">5,829</div><div class="k">מעורבויות</div></div>
+      <div class="cell"><div class="v best">₪0.03</div><div class="k">למעורבות</div></div>
+      <div class="cell"><div class="v">₪199.99</div><div class="k">תקציב מלא</div></div>
+      <div class="cell"><div class="v">11,229</div><div class="k">חשבונות</div></div>
+    </div>
+    <div class="reveal glass camp" style="margin-bottom:12px">
+      <div class="name"><span class="st active"></span>סרטון הערכים של החברה</div>
+      <div class="cell"><div class="v">5,689</div><div class="k">מעורבויות</div></div>
+      <div class="cell"><div class="v best">₪0.03</div><div class="k">למעורבות</div></div>
+      <div class="cell"><div class="v">₪144.19</div><div class="k">בהרצה</div></div>
+      <div class="cell"><div class="v">8,556</div><div class="k">חשבונות</div></div>
+    </div>
+    <div class="reveal glass camp" style="margin-bottom:12px">
+      <div class="name"><span class="st done"></span>סרטון מיילסטון · חשיפה</div>
+      <div class="cell"><div class="v">26,091</div><div class="k">חשיפה</div></div>
+      <div class="cell"><div class="v best">₪2.13</div><div class="k">לאלף (CPM)</div></div>
+      <div class="cell"><div class="v">₪55.69</div><div class="k">הוצאה</div></div>
+      <div class="cell"><div class="v">26,091</div><div class="k">חשבונות</div></div>
+    </div>
+    <div class="reveal glass camp" style="margin-bottom:12px">
+      <div class="name"><span class="st active"></span>סרטון אמון · בעל נכס↔חברה</div>
+      <div class="cell"><div class="v">3,015</div><div class="k">מעורבויות</div></div>
+      <div class="cell"><div class="v best">₪0.02</div><div class="k">למעורבות</div></div>
+      <div class="cell"><div class="v">₪53.92</div><div class="k">בהרצה</div></div>
+      <div class="cell"><div class="v">4,683</div><div class="k">חשבונות</div></div>
+    </div>
+    <div class="reveal glass camp">
+      <div class="name"><span class="st done"></span>ערכי החברה · תנועה לפרופיל</div>
+      <div class="cell"><div class="v">375</div><div class="k">ביקורי פרופיל</div></div>
+      <div class="cell"><div class="v" style="color:#ffd166">₪0.53</div><div class="k">לביקור</div></div>
+      <div class="cell"><div class="v">₪197.27</div><div class="k">תקציב מלא</div></div>
+      <div class="cell"><div class="v">8,603</div><div class="k">חשבונות</div></div>
+    </div>
+
+    <div class="callouts">
+      <div class="callout glass win reveal">
+        <div class="big">₪0.02–0.03</div>
+        <h4>עלות למעורבות — תוצאה יוצאת דופן</h4>
+        <p>שלושת סרטוני המעורבות ייצרו ~14,500 אינטראקציות בעלות זניחה. זהו הערוץ היעיל ביותר החודש.</p>
+      </div>
+      <div class="callout glass win reveal">
+        <div class="big">₪55</div>
+        <h4>26,091 חשיפה בקמפיין המיילסטון</h4>
+        <p>CPM נמוך במיוחד — מנוע מצוין למודעות מותג בעלות מינימלית.</p>
+      </div>
+      <div class="callout glass warn reveal">
+        <div class="big">₪0.53</div>
+        <h4>קמפיין התנועה לפרופיל — יקר יחסית</h4>
+        <p>הביא 20 עוקבים אך במחיר הגבוה פי 17 ממעורבות. מומלץ להסיט תקציב למעורבות/לידים.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. ORGANIC -->
+<section>
+  <div class="wrap">
+    <div class="s-head reveal"><span class="s-num">02</span><h2>פעילות אורגנית · אינסטגרם</h2><span class="line"></span></div>
+
+    <div class="grid-2">
+      <div class="chart-card glass reveal">
+        <h3>פילוח צפיות לפי סוג תוכן</h3>
+        <p class="cap">מתוך 61,436 צפיות · 79.3% הגיעו מפרסום ממומן</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center">
+          <div style="position:relative"><canvas id="donut"></canvas></div>
+          <div class="legend">
+            <div class="row"><span class="sw" style="background:#e63950"></span><span class="t">סטוריז</span><span class="p">69.7%</span></div>
+            <div class="row"><span class="sw" style="background:#2e7ce0"></span><span class="t">רילסים</span><span class="p">22.4%</span></div>
+            <div class="row"><span class="sw" style="background:#36d399"></span><span class="t">פוסטים</span><span class="p">7.9%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass reveal statlist">
+        <div class="statrow"><span class="l">חשבונות שנחשפו (Reach)</span><span class="r"><span class="v">30,424</span><span class="delta down">▼ 66%</span></span></div>
+        <div class="statrow"><span class="l">אינטראקציות</span><span class="r"><span class="v">188</span><span class="delta up">▲</span></span></div>
+        <div class="statrow"><span class="l">עוקבים חדשים</span><span class="r"><span class="v">43</span><span class="delta up">▲ 5.6%</span></span></div>
+        <div class="statrow"><span class="l">פעילות בפרופיל</span><span class="r"><span class="v">633</span><span class="delta down">▼ 31%</span></span></div>
+        <div class="statrow"><span class="l">ביקורים בפרופיל</span><span class="r"><span class="v">619</span><span class="delta down">▼ 32%</span></span></div>
+        <div class="statrow"><span class="l">הקלקות על קישור</span><span class="r"><span class="v">8</span><span class="delta up">▲ 14%</span></span></div>
+        <div class="statrow"><span class="l">הקלקות כתובת עסק</span><span class="r"><span class="v">6</span><span class="delta up">▲ 100%</span></span></div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:20px">
+      <div class="chart-card glass reveal">
+        <h3>צמיחת עוקבים במאי</h3>
+        <p class="cap">678 עוקבים · 44 הצטרפו מול 7 הסרות · תאוצה חזקה בסוף החודש</p>
+        <canvas id="growth" height="150"></canvas>
+      </div>
+      <div class="chart-card glass reveal">
+        <h3>קהל היעד · ערים מובילות</h3>
+        <p class="cap">קהל ישראלי ממוקד במרכז — תואם בול לעבודות גמר למשרדים</p>
+        <div class="bar"><div class="top"><span>תל אביב</span><b>7.6%</b></div><div class="track"><div class="fill" data-w="100"></div></div></div>
+        <div class="bar"><div class="top"><span>ראשון לציון</span><b>4.9%</b></div><div class="track"><div class="fill" data-w="64"></div></div></div>
+        <div class="bar"><div class="top"><span>פתח תקווה</span><b>3.9%</b></div><div class="track"><div class="fill" data-w="51"></div></div></div>
+        <div class="bar"><div class="top"><span>נתניה</span><b>3.5%</b></div><div class="track"><div class="fill" data-w="46"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WINNING CONTENT -->
+<section>
+  <div class="wrap">
+    <div class="s-head reveal"><span class="s-num">03</span><h2>התוכן המנצח · חוצה־פלטפורמות</h2><span class="line"></span></div>
+    <p class="sub" style="text-align:right;margin:0 0 26px;max-width:760px">סרטוני <b>צוות, פרויקטים אמיתיים וערכים</b> הם פורמט הזהב — הובילו גם אורגנית וגם כבסיס לקמפיינים הזולים ביותר. הפצה מקבילה בכל הערוצים הכפילה חשיפה כמעט ללא עלות נוספת.</p>
+    <div class="vid-grid">
+      <div class="vid glass reveal">
+        <span class="rank">1</span>
+        <div class="views">36.7K</div>
+        <div class="title">משרדי מיילסטון</div>
+        <div class="plat"><span class="tag ig">Instagram 36.6K</span><span class="tag yt">YouTube</span></div>
+      </div>
+      <div class="vid glass reveal">
+        <span class="rank">2</span>
+        <div class="views">28.3K</div>
+        <div class="title">סרטון צוות · אמון בעל נכס↔חברה</div>
+        <div class="plat"><span class="tag ig">Instagram 28K</span><span class="tag fb">Facebook 305</span></div>
+      </div>
+      <div class="vid glass reveal">
+        <span class="rank">3</span>
+        <div class="views">27.1K</div>
+        <div class="title">"אנחנו נמצאים בפרויקט"</div>
+        <div class="plat"><span class="tag ig">Instagram 15.1K</span><span class="tag fb">Facebook 12K</span></div>
+      </div>
+      <div class="vid glass reveal">
+        <span class="rank">4</span>
+        <div class="views">7.2K</div>
+        <div class="title">"אחד הדברים שאהבנו"</div>
+        <div class="plat"><span class="tag ig">Instagram 6.8K</span><span class="tag fb">Facebook 375</span></div>
+      </div>
+      <div class="vid glass reveal">
+        <span class="rank">5</span>
+        <div class="views">378</div>
+        <div class="title">"אצלנו ערכים זה הכל"</div>
+        <div class="plat"><span class="tag yt">YouTube · מוביל בערוץ</span></div>
+      </div>
+      <div class="vid glass reveal" style="display:flex;flex-direction:column;justify-content:center;background:linear-gradient(160deg,rgba(46,124,224,.18),rgba(46,124,224,.03))">
+        <div class="title" style="font-size:15px;color:var(--muted);margin:0 0 6px">ערוץ יוטיוב</div>
+        <div class="views" style="font-size:28px">66 מנויים</div>
+        <div class="title" style="margin-top:8px">29 סרטונים · בשלבי בנייה עם פוטנציאל צמיחה</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. INSIGHTS -->
+<section>
+  <div class="wrap">
+    <div class="s-head reveal"><span class="s-num">04</span><h2>תובנות מהשטח</h2><span class="line"></span></div>
+    <div class="ins-grid">
+      <div class="ins glass reveal"><div class="em">🤝</div><div><h4>שיתופי פעולה עם מעצבות פנים</h4><p>להעלות סרטונים בפורמט Collab — חשיפה לקהלים חדשים ואיכותיים ללא עלות מדיה.</p></div></div>
+      <div class="ins glass reveal"><div class="em">📘</div><div><h4>מדריכים חינמיים</h4><p>מנוע מוכח להעלאת עוקבים, וגם בסיס תוכן מצוין למודעות ממומנות.</p></div></div>
+      <div class="ins glass reveal"><div class="em">👷</div><div><h4>יותר סרטוני צוות</h4><p>התוכן האנושי הביא את הצפיות הגבוהות ביותר החודש (28K–36K) — להגביר תדירות.</p></div></div>
+      <div class="ins glass reveal"><div class="em">⏱️</div><div><h4>לא לתזמן סטורי</h4><p>הכל עולה בטווח יום-יומיים מהשליחה. הסטוריז הם 69.7% מהצפיות — טריות היא קריטית.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. RECOMMENDATIONS -->
+<section>
+  <div class="wrap">
+    <div class="s-head reveal"><span class="s-num">05</span><h2>המלצות לפעולה · יוני</h2><span class="line"></span></div>
+    <div class="reveal glass rec"><div class="n">1</div><div class="c"><h4>להגדיל תקציב לקמפייני מעורבות, לצמצם תנועה לפרופיל</h4><p>₪0.03 למעורבות מול ₪0.53 לביקור — תשואה גבוהה משמעותית על אותו שקל.</p></div></div>
+    <div class="reveal glass rec"><div class="n">2</div><div class="c"><h4>להפיק 2–4 סרטוני צוות/פרויקטים בחודש</h4><p>הפורמט שהביא 28K–36K צפיות אורגנית והניע את הגידול בעוקבים בסוף מאי.</p></div></div>
+    <div class="reveal glass rec"><div class="n">3</div><div class="c"><h4>להשיק סדרת מדריכים חינמיים + לקדם אחד בתקציב נמוך</h4><p>חיבור בין תובנת השטח למנוע עוקבים מוכח.</p></div></div>
+    <div class="reveal glass rec"><div class="n">4</div><div class="c"><h4>לפתוח שיתוף פעולה Collab ראשון עם מעצבת פנים</h4><p>חשיפה לקהל חדש ואיכותי, ללא עלות הפקה או מדיה.</p></div></div>
+    <div class="reveal glass rec"><div class="n">5</div><div class="c"><h4>לבדוק את צניחת ה-Reach (66%-) — לגוון פורמטים ושעות</h4><p>למנוע התבססות יתר על אותו קהל חשוף ולהרחיב את מעגל החשבונות הייחודיים.</p></div></div>
+    <div class="reveal glass rec"><div class="n">6</div><div class="c"><h4>לחזק קריאה לפעולה בפרופיל (קישור / כתובת)</h4><p>ההקלקות עלו אך המספרים המוחלטים נמוכים — להבליט CTA בביו ובסטוריז.</p></div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="../../assets/duvdevan-logo.png" alt="דובדבן ביצוע" />
+    <div class="tag2">בונים בדרך ערך · דוח ביצועים דיגיטלי</div>
+    <div class="meta">תקופת הדוח: 3 במאי – 1 ביוני 2026 · הופק ביוני 2026</div>
+  </div>
+</footer>
+
+<script>
+// animated counters
+const fmt = n => n.toLocaleString('en-US');
+function animateCount(el){
+  const target = +el.dataset.count, pre = el.dataset.prefix||'';
+  const dur = 1400, t0 = performance.now();
+  function step(t){
+    const p = Math.min((t-t0)/dur,1);
+    const e = 1-Math.pow(1-p,3);
+    el.textContent = pre + fmt(Math.round(target*e));
+    if(p<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+// reveal + trigger
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){
+      en.target.classList.add('in');
+      en.target.querySelectorAll?.('[data-count]').forEach(animateCount);
+      en.target.querySelectorAll?.('.fill').forEach(f=>f.style.width=f.dataset.w+'%');
+      io.unobserve(en.target);
+    }
+  });
+},{threshold:.18});
+document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+// KPI counters (top of page, fire immediately)
+document.querySelectorAll('.kpi [data-count]').forEach(el=>{
+  new IntersectionObserver((ents,obs)=>{ents.forEach(x=>{if(x.isIntersecting){animateCount(el);obs.disconnect();}});},{threshold:.3}).observe(el);
+});
+document.querySelectorAll('.bar .fill').forEach(f=>{
+  new IntersectionObserver((ents,obs)=>{ents.forEach(x=>{if(x.isIntersecting){f.style.width=f.dataset.w+'%';obs.disconnect();}});},{threshold:.3}).observe(f);
+});
+
+// Charts
+window.addEventListener('load',()=>{
+  const gridc='rgba(255,255,255,.07)', txtc='#90a2bd';
+  new Chart(document.getElementById('donut'),{
+    type:'doughnut',
+    data:{labels:['סטוריז','רילסים','פוסטים'],
+      datasets:[{data:[69.7,22.4,7.9],backgroundColor:['#e63950','#2e7ce0','#36d399'],
+        borderColor:'rgba(7,12,22,.9)',borderWidth:3,hoverOffset:8}]},
+    options:{cutout:'68%',plugins:{legend:{display:false}},animation:{animateScale:true,duration:1100}}
+  });
+  new Chart(document.getElementById('growth'),{
+    type:'line',
+    data:{labels:['2','6','10','14','18','22','24','26','28','30','31'],
+      datasets:[{data:[1,4,2,1,2,2,1,-1,2,5,7],
+        borderColor:'#4aa6ec',borderWidth:3,tension:.42,fill:true,
+        pointRadius:0,pointHoverRadius:5,
+        backgroundColor:(c)=>{const g=c.chart.ctx.createLinearGradient(0,0,0,160);
+          g.addColorStop(0,'rgba(46,124,224,.35)');g.addColorStop(1,'rgba(46,124,224,0)');return g;}}]},
+    options:{plugins:{legend:{display:false}},
+      scales:{x:{grid:{color:gridc},ticks:{color:txtc}},
+              y:{grid:{color:gridc},ticks:{color:txtc}}},
+      animation:{duration:1200}}
+  });
+});
+</script>
+</body>
+</html>
