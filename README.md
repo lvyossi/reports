@@ -1,20 +1,29 @@
-# דובדבן ביצוע — מרכז הדוחות
+# מרכז הדוחות — אתר דוחות רב-לקוחות
 
-אתר סטטי המארח את הדוחות הדיגיטליים החודשיים של חברת דובדבן ביצוע.
+אתר סטטי המארח את הדוחות הדיגיטליים של לקוחות הסוכנות. כל לקוח מקבל אזור (hub) משלו תחת נתיב ייעודי, כך שלקוחות אינם נחשפים זה לדוחות של זה.
 
 ## מבנה
 ```
 public/
-  index.html                 # מרכז הדוחות (Hub)
-  assets/duvdevan-logo.png   # לוגו רשמי
+  index.html                      # נחיתה (דובדבן ביצוע)
+  assets/duvdevan-logo.png        # לוגו דובדבן
   duvdevan/
-    may-2026/index.html      # דוח מאי 2026
+    index.html                    # hub דובדבן
+    may-2026/index.html           # דוח מאי 2026
+  hair-cosmetics/
+    index.html                    # hub הייר קוסמטיקס
+    apr-may-2026/index.html       # דוח אפריל–מאי 2026 (Meta + Google)
 ```
 
-## הוספת דוח חדש
-1. צרו תיקייה: `public/duvdevan/<month>-<year>/`
-2. העתיקו את `index.html` מדוח קיים ועדכנו נתונים.
-3. הוסיפו כרטיס חדש ל-`public/index.html`.
+## הוספת לקוח חדש
+1. צרו תיקייה: `public/<client-slug>/` עם `index.html` (hub) משלו.
+2. הוסיפו דוחות תחת `public/<client-slug>/<period>/index.html`.
+3. מסרו ללקוח את הקישור הישיר ל-`/<client-slug>/`.
+
+## הוספת דוח חדש ללקוח קיים
+1. צרו תיקייה: `public/<client-slug>/<period>/`
+2. העתיקו `index.html` מדוח קיים ועדכנו נתונים.
+3. הוסיפו כרטיס חדש ל-hub של הלקוח.
 4. פרסו מחדש: `vercel --prod`.
 
 ## פריסה ל-Vercel

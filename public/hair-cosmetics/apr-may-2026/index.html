@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>הייר קוסמטיקס · דוח ביצועים — אפריל–מאי 2026</title>
+<meta name="description" content="דוח ביצועי מדיה ממומנת להייר קוסמטיקס — Meta Ads ו-Google Ads, אפריל–מאי 2026. הוצאה, החזר השקעה, קמפיינים מובילים, תובנות והמלצות." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --gold:#d99b3c; --gold-2:#f4c66b; --rose:#e6398f; --rose-2:#ff6bb0;
+  --meta:#4a8cff; --google:#34c47a;
+  --bg:#0b0710; --bg-2:#140b18; --card:rgba(255,255,255,.045);
+  --card-bd:rgba(255,255,255,.09); --txt:#f6eef7; --muted:#b39db0;
+  --good:#36d399; --bad:#ff6b81;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',system-ui,sans-serif;background:var(--bg);color:var(--txt);
+  line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(900px 600px at 85% -5%, rgba(230,57,143,.20), transparent 60%),
+    radial-gradient(700px 500px at 0% 10%, rgba(217,155,60,.16), transparent 55%),
+    radial-gradient(800px 700px at 50% 110%, rgba(230,57,143,.12), transparent 60%),
+    linear-gradient(180deg,var(--bg),var(--bg-2))}
+body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%);
+          mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* brand wordmark */
+.brandmark{display:inline-flex;align-items:baseline;gap:8px;font-weight:900;letter-spacing:-.5px}
+.brandmark .a{background:linear-gradient(120deg,#fff,var(--gold-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.brandmark .b{background:linear-gradient(120deg,var(--rose-2),var(--rose));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:rgba(11,7,16,.66);border-bottom:1px solid var(--card-bd)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+nav .brandmark{font-size:20px}
+nav .badge{font-size:13px;color:var(--muted);font-weight:500;
+  border:1px solid var(--card-bd);padding:6px 14px;border-radius:100px}
+
+/* HERO */
+header{padding:78px 0 36px;text-align:center;position:relative}
+.logo-hero{font-size:clamp(30px,5vw,46px);margin-bottom:24px;
+  animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.kicker{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:14px;
+  letter-spacing:.4px;color:var(--gold-2);border:1px solid rgba(217,155,60,.35);
+  background:rgba(217,155,60,.08);padding:8px 18px;border-radius:100px;margin-bottom:22px;
+  animation:rise .9s .05s cubic-bezier(.2,.8,.2,1) both}
+.kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 0 0 rgba(54,211,153,.6);animation:pulse 2s infinite}
+h1{font-size:clamp(38px,6.4vw,76px);font-weight:900;line-height:1.04;letter-spacing:-1.5px;
+  background:linear-gradient(120deg,#fff 25%,var(--gold-2) 78%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:rise .9s .1s cubic-bezier(.2,.8,.2,1) both}
+h1 .rose{background:linear-gradient(120deg,var(--rose-2),var(--rose));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{margin:20px auto 0;max-width:660px;color:var(--muted);font-size:clamp(16px,2vw,19px);
+  animation:rise .9s .16s cubic-bezier(.2,.8,.2,1) both}
+.daterange{margin-top:14px;font-weight:700;color:var(--txt);font-size:15px;letter-spacing:.5px;
+  animation:rise .9s .2s cubic-bezier(.2,.8,.2,1) both}
+
+/* SECTION */
+section{padding:54px 0;position:relative}
+.s-head{display:flex;align-items:center;gap:16px;margin-bottom:34px}
+.s-num{font-weight:900;font-size:15px;color:var(--gold-2);border:1px solid rgba(217,155,60,.35);
+  background:rgba(217,155,60,.08);min-width:42px;height:42px;display:grid;place-items:center;border-radius:13px}
+.s-head h2{font-size:clamp(26px,3.6vw,38px);font-weight:800;letter-spacing:-.6px}
+.s-head .chip{font-size:13px;font-weight:700;padding:5px 12px;border-radius:100px}
+.chip.meta{color:var(--meta);background:rgba(74,140,255,.12)}
+.chip.google{color:var(--google);background:rgba(52,196,122,.12)}
+.s-head .line{flex:1;height:1px;background:linear-gradient(90deg,var(--card-bd),transparent)}
+
+/* GLASS */
+.glass{background:var(--card);border:1px solid var(--card-bd);border-radius:22px;
+  backdrop-filter:blur(6px);box-shadow:0 24px 60px -30px rgba(0,0,0,.7)}
+
+/* KPI */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.kpi{padding:26px 22px;border-radius:20px;position:relative;overflow:hidden}
+.kpi::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:linear-gradient(160deg,rgba(255,255,255,.25),transparent 45%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.kpi .ico{font-size:22px;margin-bottom:12px;opacity:.9}
+.kpi .num{font-size:clamp(26px,3.2vw,38px);font-weight:900;letter-spacing:-1px;line-height:1}
+.kpi .lbl{color:var(--muted);font-size:13.5px;font-weight:500;margin-top:9px}
+.kpi .pill{position:absolute;top:18px;left:18px;font-size:11.5px;font-weight:700;
+  padding:3px 9px;border-radius:100px}
+.pill.up{color:var(--good);background:rgba(54,211,153,.12)}
+.kpi.accent{background:linear-gradient(160deg,rgba(217,155,60,.22),rgba(217,155,60,.03))}
+.kpi.accent-r{background:linear-gradient(160deg,rgba(230,57,143,.2),rgba(230,57,143,.03))}
+
+/* grids */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+/* campaign rows */
+.camp{padding:20px 24px;border-radius:18px;display:grid;
+  grid-template-columns:1.9fr repeat(4,1fr);align-items:center;gap:14px;transition:.25s;margin-bottom:12px}
+.camp:hover{transform:translateY(-3px);border-color:rgba(230,57,143,.4)}
+.camp .name{font-weight:700;font-size:15px;display:flex;align-items:center;gap:10px}
+.camp .st{width:9px;height:9px;border-radius:50%;flex:none}
+.st.active{background:var(--good);box-shadow:0 0 10px var(--good)}
+.st.done{background:#7a6577}
+.camp .cell .v{font-weight:800;font-size:17px}
+.camp .cell .k{color:var(--muted);font-size:12px}
+.camp .cell .best{color:var(--good)}
+.camp .roas{font-weight:900;font-size:20px;background:linear-gradient(120deg,var(--gold-2),var(--rose-2));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.camp-head{display:grid;grid-template-columns:1.9fr repeat(4,1fr);gap:14px;
+  padding:0 24px 10px;color:var(--muted);font-size:12.5px;font-weight:600}
+
+/* ads list */
+.ad{display:grid;grid-template-columns:1.6fr .8fr .9fr 1fr .9fr;gap:12px;align-items:center;
+  padding:15px 20px;border-bottom:1px solid rgba(255,255,255,.05)}
+.ad:last-child{border-bottom:0}
+.ad .nm{font-weight:700;font-size:14.5px;display:flex;align-items:center;gap:9px}
+.ad .v{font-weight:800;font-size:15px}.ad .k{color:var(--muted);font-size:11.5px}
+.ad .r{font-weight:900;font-size:17px;color:var(--good)}
+.tg{font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px;flex:none}
+.tg.vid{color:var(--rose-2);background:rgba(230,57,143,.1)}
+.tg.stat{color:var(--gold-2);background:rgba(217,155,60,.1)}
+.tg.ugc{color:#9d7bff;background:rgba(157,123,255,.12)}
+
+/* callouts */
+.callouts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.callout{padding:24px;border-radius:18px}
+.callout .big{font-size:32px;font-weight:900;letter-spacing:-1px}
+.callout.win .big{color:var(--good)} .callout.warn .big{color:#ffd166}
+.callout h4{font-size:15px;margin:6px 0 8px} .callout p{color:var(--muted);font-size:14px}
+
+/* chart */
+.chart-card{padding:28px}
+.chart-card h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.chart-card .cap{color:var(--muted);font-size:13px;margin-bottom:18px}
+
+/* stat list */
+.statlist{padding:10px 6px}
+.statrow{display:flex;align-items:center;justify-content:space-between;
+  padding:15px 18px;border-bottom:1px solid rgba(255,255,255,.05)}
+.statrow:last-child{border-bottom:0}
+.statrow .l{color:var(--muted);font-weight:500}
+.statrow .r .v{font-weight:800;font-size:19px}
+
+/* compare */
+.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cmp{padding:30px;border-radius:20px;position:relative;overflow:hidden}
+.cmp.m{background:linear-gradient(160deg,rgba(74,140,255,.16),rgba(74,140,255,.02))}
+.cmp.g{background:linear-gradient(160deg,rgba(52,196,122,.16),rgba(52,196,122,.02))}
+.cmp .h{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;margin-bottom:18px}
+.cmp .roas-big{font-size:44px;font-weight:900;letter-spacing:-2px;line-height:1}
+.cmp.m .roas-big{color:var(--meta)} .cmp.g .roas-big{color:var(--google)}
+.cmp .rl{color:var(--muted);font-size:13px;margin-top:4px}
+.cmp .mini{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08)}
+.cmp .mini div b{display:block;font-size:19px;font-weight:900}
+.cmp .mini div span{color:var(--muted);font-size:12.5px}
+
+/* insights */
+.ins-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.ins{padding:26px;border-radius:18px;display:flex;gap:18px;align-items:flex-start}
+.ins .em{font-size:28px;flex:none;width:56px;height:56px;display:grid;place-items:center;
+  border-radius:15px;background:rgba(230,57,143,.1);border:1px solid rgba(230,57,143,.25)}
+.ins h4{font-size:17px;margin-bottom:5px}
+.ins p{color:var(--muted);font-size:14.5px}
+
+/* recommendations */
+.rec{display:flex;gap:18px;padding:22px 24px;border-radius:16px;margin-bottom:14px;
+  align-items:flex-start;transition:.2s}
+.rec:hover{transform:translateX(-5px);border-color:rgba(230,57,143,.4)}
+.rec .n{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+  font-weight:900;color:#fff;background:linear-gradient(140deg,var(--rose),var(--gold))}
+.rec .c h4{font-size:16.5px;margin-bottom:3px}
+.rec .c p{color:var(--muted);font-size:14px}
+.rec .c .src{font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:100px;margin-right:8px;vertical-align:middle}
+.src.meta{color:var(--meta);background:rgba(74,140,255,.12)}
+.src.google{color:var(--google);background:rgba(52,196,122,.12)}
+
+/* footer */
+footer{padding:60px 0 50px;text-align:center;border-top:1px solid var(--card-bd);margin-top:40px}
+footer .brandmark{font-size:26px;margin-bottom:14px}
+footer .tag2{color:var(--muted);font-size:14px}
+footer .meta{color:#6a566a;font-size:12.5px;margin-top:14px}
+
+.reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(54,211,153,.6)}70%{box-shadow:0 0 0 9px rgba(54,211,153,0)}100%{box-shadow:0 0 0 0 rgba(54,211,153,0)}}
+
+@media(max-width:900px){
+  .kpi-grid{grid-template-columns:1fr 1fr}
+  .grid-2,.callouts,.cmp-grid,.ins-grid{grid-template-columns:1fr}
+  .camp,.camp-head{grid-template-columns:1fr 1fr;gap:10px}
+  .camp-head{display:none}
+  .camp .name{grid-column:1/-1}
+  .ad{grid-template-columns:1fr 1fr;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brandmark"><span class="a">HAIR</span><span class="b">COSMETICS</span></span>
+    <span class="badge">דוח ביצועים · אפריל–מאי 2026</span>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="logo-hero brandmark"><span class="a">הייר</span><span class="b">קוסמטיקס</span></div>
+    <div class="kicker"><span class="dot"></span> דוח מדיה ממומנת · Meta + Google</div>
+    <h1>סיכום ביצועים<br><span class="rose">אפריל–מאי 2026</span></h1>
+    <p class="sub">חודשיים של מדיה רווחית במיוחד — ₪443K הכנסה על ₪40K הוצאה. סקירת Meta Ads, Google Ads, הקמפיינים והמודעות המובילות, תובנות והמלצות לפעולה.</p>
+    <div class="daterange">📅 אפריל – מאי 2026 · Meta &amp; Google Ads</div>
+  </div>
+</header>
+
+<!-- COMBINED KPI -->
+<section style="padding-top:24px">
+  <div class="wrap">
+    <div class="kpi-grid">
+      <div class="kpi glass accent">
+        <div class="ico">💸</div>
+        <div class="num" data-prefix="₪" data-count="40173">0</div>
+        <div class="lbl">סך הוצאת מדיה (Meta + Google)</div>
+      </div>
+      <div class="kpi glass accent-r">
+        <div class="ico">💰</div>
+        <div class="num" data-prefix="₪" data-count="443486">0</div>
+        <div class="lbl">סך הכנסות מיוחסות</div>
+      </div>
+      <div class="kpi glass">
+        <span class="pill up">▲ פי 11</span>
+        <div class="ico">📈</div>
+        <div class="num" data-suffix="%" data-count="1104">0</div>
+        <div class="lbl">יחס החזר משוקלל (ROAS)</div>
+      </div>
+      <div class="kpi glass">
+        <div class="ico">🛒</div>
+        <div class="num" data-count="1439">0</div>
+        <div class="lbl">סך המרות רכישה</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNEL COMPARE -->
+<section style="padding-top:10px">
+  <div class="wrap">
+    <div class="s-head reveal"><span class="s-num">★</span><h2>השוואת ערוצים</h2><span class="line"></span></div>
+    <div class="cmp-grid">
+      <div class="cmp glass m reveal">
+        <div class="h">🔵 Meta Ads</div>
+        <div class="roas-big">899%</div>
+        <div class="rl">יחס החזר השקעה</div>
+        <div class="mini">
+          <div><b>₪21,443</b><span>הוצאה</span></div>
+          <div><b>₪192,831</b><span>הכנסה</span></div>
+          <div><b>566</b><span>רכישות</span></div>
+          <div><b>₪37.89</b><span>עלות לרכישה</span></div>
+        </div>
+      </div>
+      <div class="cmp glass g reveal">
+        <div class="h">🟢 Google Ads</div>
+        <div class="roas-big">1,338%</div>
+        <div class="rl">יחס החזר השקעה</div>
+        <div class="mini">
+          <div><b>₪18,730</b><span>הוצאה</span></div>
+          <div><b>₪250,655</b><span>הכנסה</span></div>
+          <div><b>872.8</b><span>המרות</span></div>
+          <div><b>₪21.46</b><span>עלות להמרה</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:20px">
+      <div class="chart-card glass reveal">
+        <h3>הוצאה מול הכנסה לפי ערוץ</h3>
+        <p class="cap">שני הערוצים רווחיים מאוד — Google מוביל בהיקף ההכנסה ובעלות נמוכה יותר להמרה</p>
+        <canvas id="cmpBar" height="170"></canvas>
+      </div>
+      <div class="chart-card glass reveal">
+        <h3>חלוקת ההכנסה הכוללת</h3>
+        <p class="cap">₪443,486 סה"כ · Google 56.5% · Meta 43.5%</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center">
+          <div style="position:relative"><canvas id="revDonut"></canvas></div>
+          <div style="display:flex;flex-direction:column;gap:14px;justify-content:center">
+            <div style="display:flex;align-items:center;gap:12px"><span style="width:13px;height:13px;border-radius:4px;background:var(--google)"></span><span style="flex:1;font-weight:600">Google</span><b>₪250.7K</b></div>
+            <div style="display:flex;align-items:center;gap:12px"><span style="width:13px;height:13px;border-radius:4px;background:var(--meta)"></span><span style="flex:1;font-weight:600">Meta</span><b>₪192.8K</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- META -->
+<section>
+  <div class="wrap">
+    <div class="s-head reveal"><span class="s-num">01</span><h2>Meta Ads</h2><span class="chip meta">ROAS 899%</span><span class="line"></span></div>
+
+    <div class="camp-head reveal">
+      <span>קמפיין</span><span>הוצאה</span><span>רכישות</span><span>הכנסה</span><span>ROAS</span>
+    </div>
+
+    <div class="reveal glass camp">
+      <div class="name"><span class="st done"></span>על המוצרים · אפריל 20% (הנחה)</div>
+      <div class="cell"><div class="v">₪1,343.70</div><div class="k">הוצאה</div></div>
+      <div class="cell"><div class="v">49</div><div class="k">רכישות</div></div>
+      <div class="cell"><div class="v">₪17,962.55</div><div class="k">הכנסה</div></div>
+      <div class="cell"><div class="roas">13.37</div><div class="k">×</div></div>
+    </div>
+    <div class="reveal glass camp">
+      <div class="name"><span class="st active"></span>ב"י · מוצרים לשיער שעובד</div>
+      <div class="cell"><div class="v">₪4,885.04</div><div class="k">הוצאה</div></div>
+      <div class="cell"><div class="v">156</div><div class="k">רכישות</div></div>
+      <div class="cell"><div class="v">₪48,128.69</div><div class="k">הכנסה</div></div>
+      <div class="cell"><div class="roas">9.85</div><div class="k">×</div></div>
+    </div>
+    <div class="reveal glass camp">
+      <div class="name"><span class="st active"></span>מוצרים לשיער שעובד · אפריל 20%</div>
+      <div class="cell"><div class="v">₪1,601.26</div><div class="k">הוצאה</div></div>
+      <div class="cell"><div class="v">37</div><div class="k">רכישות</div></div>
+      <div class="cell"><div class="v">₪15,673.45</div><div class="k">הכנסה</div></div>
+      <div class="cell"><div class="roas">9.79</div><div class="k">×</div></div>
+    </div>
+    <div class="reveal glass camp">
+      <div class="name"><span class="st active"></span>מיץ · BEST SELLER</div>
+      <div class="cell"><div class="v">₪2,213.20</div><div class="k">הוצאה</div></div>
+      <div class="cell"><div class="v">56</div><div class="k">רכישות</div></div>
+      <div class="cell"><div class="v">₪21,226.25</div><div class="k">הכנסה</div></div>
+      <div class="cell"><div class="roas">9.59</div><div class="k">×</div></div>
+    </div>
+    <div class="reveal glass camp">
+      <div class="name"><span class="st active"></span>קטלוג דינמי · מיץ</div>
+      <div class="cell"><div class="v">₪5,560.44</div><div class="k">הוצאה</div></div>
+      <div class="cell"><div class="v">169</div><div class="k">רכישות</div></div>
+      <div class="cell"><div class="v">₪51,568.15</div><div class="k">הכנסה</div></div>
+      <div class="cell"><div class="roas">9.27</div><div class="k">×</div></div>
+    </div>
+
+    <!-- TOP ADS -->
+    <h3 style="font-size:20px;font-weight:800;margin:34px 0 16px">המודעות המובילות · לפי ROAS</h3>
+    <div class="glass reveal" style="padding:6px 4px">
+      <div class="ad" style="color:var(--muted);font-size:12.5px;font-weight:600;border-bottom:1px solid var(--card-bd)">
+        <span>מודעה</span><span>הוצאה</span><span>רכישות</span><span>הכנסה</span><span>ROAS</span>
+      </div>
+      <div class="ad"><div class="nm"><span class="tg stat">סטטי</span>חום לשיער</div><div><span class="v">₪10.41</span></div><div><span class="v">2</span></div><div><span class="v">₪877.00</span></div><div class="r">84.25</div></div>
+      <div class="ad"><div class="nm"><span class="tg vid">סרטון</span>מסכת חום לשיער</div><div><span class="v">₪21.31</span></div><div><span class="v">1</span></div><div><span class="v">₪658.00</span></div><div class="r">30.88</div></div>
+      <div class="ad"><div class="nm"><span class="tg stat">סטטי</span>ספריי לשיער</div><div><span class="v">₪9.99</span></div><div><span class="v">1</span></div><div><span class="v">₪266.00</span></div><div class="r">26.63</div></div>
+      <div class="ad"><div class="nm"><span class="tg stat">סטטי</span>מסכת K18 לשיער</div><div><span class="v">₪109.98</span></div><div><span class="v">4</span></div><div><span class="v">₪2,775.30</span></div><div class="r">25.23</div></div>
+      <div class="ad"><div class="nm"><span class="tg stat">סטטי</span>גלייז לשיער</div><div><span class="v">₪150.43</span></div><div><span class="v">7</span></div><div><span class="v">₪2,972.00</span></div><div class="r">19.76</div></div>
+      <div class="ad"><div class="nm"><span class="tg ugc">UGC</span>ספריי לשיער · סרטון</div><div><span class="v">₪258.22</span></div><div><span class="v">10</span></div><div><span class="v">₪5,062.40</span></div><div class="r">19.60</div></div>
+      <div class="ad"><div class="nm"><span class="tg vid">סרטון</span>ספריי לשיער</div><div><span class="v">₪458.48</span></div><div><span class="v">16</span></div><div><span class="v">₪5,700.00</span></div><div class="r">12.43</div></div>
+      <div class="ad"><div class="nm"><span class="tg vid">סרטון</span>סרטון מוצרים</div><div><span class="v">₪1,541.45</span></div><div><span class="v">56</span></div><div><span class="v">₪17,906.82</span></div><div class="r">11.62</div></div>
+      <div class="ad"><div class="nm"><span class="tg vid">סרטון</span>מסכת K18 · סרטון</div><div><span class="v">₪1,039.36</span></div><div><span class="v">31</span></div><div><span class="v">₪11,761.15</span></div><div class="r">11.32</div></div>
+    </div>
+
+    <div class="callouts">
+      <div class="callout glass win reveal">
+        <div class="big">קריאייטיב</div>
+        <h4>מודעות קריאייטיב מנצחות את הקטלוג הדינמי</h4>
+        <p>מודעות סטטיות וסרטוני וידאו (כולל UGC) מניבות את יחסי ההמרה וההחזר הגבוהים ביותר — לעומת מודעות הקטלוג הדינמי.</p>
+      </div>
+      <div class="callout glass win reveal">
+        <div class="big">84×</div>
+        <h4>שיא ROAS במודעה בודדת</h4>
+        <p>"חום לשיער" סטטי החזיר ₪877 על ₪10 הוצאה — איתות חזק להרחבת התקציב לפורמט.</p>
+      </div>
+      <div class="callout glass warn reveal">
+        <div class="big">9.27×</div>
+        <h4>הקטלוג הדינמי — נפח גבוה, ROAS נמוך יחסית</h4>
+        <p>מביא הכי הרבה רכישות (169) אך ה-ROAS הנמוך בקבוצה. להסיט משקל למודעות קריאייטיב.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOGLE -->
+<section>
+  <div class="wrap">
+    <div class="s-head reveal"><span class="s-num">02</span><h2>Google Ads</h2><span class="chip google">ROAS 1,338%</span><span class="line"></span></div>
+
+    <div class="grid-2">
+      <div class="glass reveal statlist">
+        <div class="statrow"><span class="l">חשיפות (Impressions)</span><span class="r"><span class="v">875,154</span></span></div>
+        <div class="statrow"><span class="l">קליקים</span><span class="r"><span class="v">14,843</span></span></div>
+        <div class="statrow"><span class="l">עלות ממוצעת לקליק (CPC)</span><span class="r"><span class="v">₪1.26</span></span></div>
+        <div class="statrow"><span class="l">המרות רכישה</span><span class="r"><span class="v">872.83</span></span></div>
+        <div class="statrow"><span class="l">עלות להמרה</span><span class="r"><span class="v">₪21.46</span></span></div>
+        <div class="statrow"><span class="l">ערך המרות (הכנסה)</span><span class="r"><span class="v">₪250,655</span></span></div>
+      </div>
+      <div class="chart-card glass reveal">
+        <h3>ביצועי הקמפיינים · לפי סוג</h3>
+        <p class="cap">PMAX הגנרי הוא המנוע החזק ביותר (ללא קמפיין המותג בחיפוש)</p>
+        <canvas id="gBar" height="190"></canvas>
+      </div>
+    </div>
+
+    <div class="callouts">
+      <div class="callout glass win reveal">
+        <div class="big">PMAX</div>
+        <h4>הקמפיין הגנרי הוא המוביל</h4>
+        <p>מבין שלושת הקמפיינים — הטוב ביותר, כאשר מנטרלים את קמפיין המותג ברשת החיפוש.</p>
+      </div>
+      <div class="callout glass warn reveal">
+        <div class="big">תלתלים</div>
+        <h4>קמפיין מוצרים לתלתלים — פוטנציאל אופטימיזציה</h4>
+        <p>תתבצע אופטימיזציה להעלאת ה-ROAS ולקבלת יותר רכישות של מוצרי התלתלים.</p>
+      </div>
+      <div class="callout glass warn reveal">
+        <div class="big">מותג</div>
+        <h4>להוריד דגש מקמפיין המותג</h4>
+        <p>מחפשים את המותג ממילא — לצמצם תקציב (לא להסיר לגמרי) ולהפנות לקמפיינים גנריים.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section>
+  <div class="wrap">
+    <div class="s-head reveal"><span class="s-num">03</span><h2>תובנות מרכזיות</h2><span class="line"></span></div>
+    <div class="ins-grid">
+      <div class="ins glass reveal"><div class="em">🎨</div><div><h4>קריאייטיב מנצח קטלוג</h4><p>ב-Meta, מודעות סטטיות וסרטוני וידאו (כולל UGC) מובילות ב-ROAS ובהמרות — להתמקד בהן על חשבון הקטלוג הדינמי.</p></div></div>
+      <div class="ins glass reveal"><div class="em">🔍</div><div><h4>Google ערוץ הרווח המוביל</h4><p>ROAS 1,338% ועלות להמרה ₪21.46 — נמוכה משמעותית מ-Meta (₪37.89). מנוע יעיל להרחבה.</p></div></div>
+      <div class="ins glass reveal"><div class="em">🏷️</div><div><h4>תנועת המותג "חינמית" בפועל</h4><p>הגולשים מחפשים את המותג בלי קשר לתקציב — אפשר להסיט ממנו תקציב לגנרי ולמותגי משנה.</p></div></div>
+      <div class="ins glass reveal"><div class="em">💧</div><div><h4>מוצרי התלתלים — הזדמנות צמיחה</h4><p>קטגוריה עם ביקוש שעדיין לא ממוקסמת — אופטימיזציה כאן תוסיף רכישות ב-ROAS משתפר.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section>
+  <div class="wrap">
+    <div class="s-head reveal"><span class="s-num">04</span><h2>המלצות לפעולה</h2><span class="line"></span></div>
+    <div class="reveal glass rec"><div class="n">1</div><div class="c"><h4><span class="src meta">Meta</span>להגדיל תקציב למודעות קריאייטיב, לצמצם קטלוג דינמי</h4><p>הפורמטים הסטטיים וה-UGC מניבים ROAS של 12×–84× — הסטת תקציב אליהם תשפר את התשואה הכוללת.</p></div></div>
+    <div class="reveal glass rec"><div class="n">2</div><div class="c"><h4><span class="src google">Google</span>אופטימיזציה לקמפיין מוצרים לתלתלים</h4><p>להעלות את ה-ROAS שהוא מניב ולהגדיל את כמות הרכישות בקטגוריה.</p></div></div>
+    <div class="reveal glass rec"><div class="n">3</div><div class="c"><h4><span class="src google">Google</span>להוריד דגש (לא להסיר) מקמפיין המותג</h4><p>מחפשים את המותג בכל מקרה — להפנות חלק מהתקציב לקמפיינים גנריים ול-PMAX.</p></div></div>
+    <div class="reveal glass rec"><div class="n">4</div><div class="c"><h4><span class="src google">Google</span><span class="src meta">Meta</span>להשיק קמפיינים ברמת מותג-משנה</h4><p>כמו ב-Meta — קמפיינים ייעודיים ל-BE YOU וביוטופ, וגם להדגיש את ההנחה על הפריט השני.</p></div></div>
+    <div class="reveal glass rec"><div class="n">5</div><div class="c"><h4><span class="src meta">Meta</span>להרחיב את ה-Best Sellers המובילים</h4><p>מיץ, מסכת K18, ספריי וגלייז הניבו ROAS גבוה — להגדיל תקציב ולהפיק וריאציות קריאייטיב נוספות.</p></div></div>
+    <div class="reveal glass rec"><div class="n">6</div><div class="c"><h4><span class="src google">Google</span>להרחיב את PMAX הגנרי</h4><p>המנוע היעיל ביותר ב-Google — להגדיל תקציב ולהזין פידים/אסטים נוספים לצמיחה.</p></div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brandmark"><span class="a">הייר</span><span class="b">קוסמטיקס</span></div>
+    <div class="tag2">דוח ביצועי מדיה ממומנת · Meta &amp; Google Ads</div>
+    <div class="meta">תקופת הדוח: אפריל – מאי 2026 · הופק ביוני 2026</div>
+  </div>
+</footer>
+
+<script>
+const fmt = n => n.toLocaleString('en-US');
+function animateCount(el){
+  const target = +el.dataset.count, pre = el.dataset.prefix||'', suf = el.dataset.suffix||'';
+  const dur = 1400, t0 = performance.now();
+  function step(t){
+    const p = Math.min((t-t0)/dur,1);
+    const e = 1-Math.pow(1-p,3);
+    el.textContent = pre + fmt(Math.round(target*e)) + suf;
+    if(p<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){
+      en.target.classList.add('in');
+      en.target.querySelectorAll?.('[data-count]').forEach(animateCount);
+      io.unobserve(en.target);
+    }
+  });
+},{threshold:.18});
+document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+document.querySelectorAll('.kpi [data-count]').forEach(el=>{
+  new IntersectionObserver((ents,obs)=>{ents.forEach(x=>{if(x.isIntersecting){animateCount(el);obs.disconnect();}});},{threshold:.3}).observe(el);
+});
+
+window.addEventListener('load',()=>{
+  const gridc='rgba(255,255,255,.07)', txtc='#b39db0';
+  const META='#4a8cff', GOOGLE='#34c47a';
+  new Chart(document.getElementById('cmpBar'),{
+    type:'bar',
+    data:{labels:['Meta','Google'],
+      datasets:[
+        {label:'הוצאה',data:[21443,18730],backgroundColor:'rgba(255,255,255,.22)',borderRadius:8,barPercentage:.62},
+        {label:'הכנסה',data:[192831,250655],backgroundColor:[META,GOOGLE],borderRadius:8,barPercentage:.62}
+      ]},
+    options:{plugins:{legend:{labels:{color:txtc}}},
+      scales:{x:{grid:{display:false},ticks:{color:txtc,font:{weight:700}}},
+              y:{grid:{color:gridc},ticks:{color:txtc,callback:v=>'₪'+(v/1000)+'K'}}},
+      animation:{duration:1200}}
+  });
+  new Chart(document.getElementById('revDonut'),{
+    type:'doughnut',
+    data:{labels:['Google','Meta'],
+      datasets:[{data:[250655,192831],backgroundColor:[GOOGLE,META],
+        borderColor:'rgba(11,7,16,.9)',borderWidth:3,hoverOffset:8}]},
+    options:{cutout:'68%',plugins:{legend:{display:false}},animation:{animateScale:true,duration:1100}}
+  });
+  new Chart(document.getElementById('gBar'),{
+    type:'bar',
+    data:{labels:['PMAX גנרי','מוצרים לתלתלים','מותג (חיפוש)'],
+      datasets:[{data:[100,62,34],backgroundColor:[GOOGLE,'#7bd6a6','#3a6e54'],borderRadius:8,barPercentage:.6}]},
+    options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'יעילות יחסית '+c.parsed.x+'%'}}},
+      scales:{x:{grid:{color:gridc},ticks:{color:txtc,callback:v=>v+'%'}},
+              y:{grid:{display:false},ticks:{color:txtc,font:{weight:700}}}},
+      animation:{duration:1200}}
+  });
+});
+</script>
+</body>
+</html>
