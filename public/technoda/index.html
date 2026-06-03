@@ -100,8 +100,12 @@ section{padding:56px 0}
 .ref .who b{display:block;font-size:15px;font-weight:800}
 .ref .who span{color:var(--muted);font-size:13px}
 .ref .who a{color:var(--c5);font-size:13px;font-weight:600}
-.placeholder{border:2px dashed #d9ddec;background:var(--bg-soft);text-align:center;color:var(--muted);
-  border-radius:18px;padding:34px;font-size:15px;grid-column:1/-1}
+.ref{display:flex;flex-direction:column;gap:18px}
+.ref .telbtn{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-weight:800;font-size:15px;letter-spacing:.3px;padding:12px;border-radius:12px;direction:ltr;
+  color:var(--c1);background:linear-gradient(90deg,rgba(106,61,240,.1),rgba(46,124,224,.1));
+  border:1px solid rgba(106,61,240,.18);transition:.22s}
+.ref .telbtn:hover{color:#fff;background:linear-gradient(90deg,var(--c1),var(--c5));border-color:transparent}
 
 /* ---------- CONTACT ---------- */
 .contact{background:linear-gradient(120deg,var(--c1),var(--c2) 60%,var(--c3));border-radius:26px;
@@ -194,8 +198,41 @@ footer{text-align:center;padding:34px 0;color:#9aa2b8;font-size:13px}
       <span class="ln"></span>
     </div>
     <div class="refs">
-      <!-- REFERENCES_PLACEHOLDER -->
-      <div class="placeholder">רשימת הממליצים תתווסף כאן — שמות, תפקידים והמלצות.</div>
+      <div class="ref">
+        <div class="who">
+          <span class="av" style="background:linear-gradient(150deg,#6a3df0,#2e7ce0)">ד</span>
+          <span><b>דקלה</b><span>מנהלת היחידה ללימודי חוץ · מכללת כנרת</span></span>
+        </div>
+        <a class="telbtn" href="tel:+972506694531">📞 050-669-4531</a>
+      </div>
+      <div class="ref">
+        <div class="who">
+          <span class="av" style="background:linear-gradient(150deg,#ff3d8b,#ff8a00)">ג</span>
+          <span><b>גולן</b><span>דובר עיריית רמלה</span></span>
+        </div>
+        <a class="telbtn" href="tel:+972547770212">📞 054-777-0212</a>
+      </div>
+      <div class="ref">
+        <div class="who">
+          <span class="av" style="background:linear-gradient(150deg,#00c2c7,#2e7ce0)">א</span>
+          <span><b>אתי</b><span>מנהלת שיווק · מסד שירותי סיעוד (5,000+ עובדים)</span></span>
+        </div>
+        <a class="telbtn" href="tel:+972526165574">📞 052-616-5574</a>
+      </div>
+      <div class="ref">
+        <div class="who">
+          <span class="av" style="background:linear-gradient(150deg,#ff8a00,#ff3d8b)">ע</span>
+          <span><b>עדן</b><span>דוברת · מועצה מקומית סביון</span></span>
+        </div>
+        <a class="telbtn" href="tel:+972526685988">📞 052-668-5988</a>
+      </div>
+      <div class="ref">
+        <div class="who">
+          <span class="av" style="background:linear-gradient(150deg,#2e7ce0,#6a3df0)">א</span>
+          <span><b>אלי</b><span>מנהל שיווק · רשת הקמעונאות חינם פלוס</span></span>
+        </div>
+        <a class="telbtn" href="tel:+972548974585">📞 054-897-4585</a>
+      </div>
     </div>
   </div>
 </section>
